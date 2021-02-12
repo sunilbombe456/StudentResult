@@ -17,12 +17,14 @@ public class StudentMain {
 		Scanner sc = new Scanner(System.in);
 		int n = 0;
 		
-		while(n<5) {
+		while(n<7) {
 			System.out.println("1: Add New Student");
 			System.out.println("2: Print All Students");
 			System.out.println("3: Sorting by Adress");
 			System.out.println("4: Sorting by Result");
-			System.out.println("5: Exit");
+			System.out.println("5: Save Into File");
+			System.out.println("4: Read From File");
+			System.out.println("7: Exit");
 			System.out.println("Enter the Option from Menu..!");
 			n = sc.nextInt();
 			switch(n) {
@@ -35,7 +37,13 @@ public class StudentMain {
 			case 3: studentService.filterByAddress(studentList);
 				break;
 			case 4: studentService.filterByResult(studentList);
+				break;
+			case 5: studentService.saveIntoFile(studentList);
+				break;
+			case 6:
+				break;
 			default:
+				System.out.println("Enter Valid Option..!");
 				break;
 			}
 			

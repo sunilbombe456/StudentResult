@@ -1,5 +1,8 @@
 package service.impl;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -73,6 +76,38 @@ public class StudentServiceImpl implements StudentService {
 			}
 		}
 		printAllStudentList(list);
+	}
+
+	@Override
+	public void saveIntoFile(List<Student> studentList) {
+		// TODO Auto-generated method stub
+		File file = new File("studentList.txt");
+		try {
+			
+			if(file.createNewFile()) {
+				FileOutputStream fos = new FileOutputStream(file);
+				Iterator i = studentList.iterator();
+				while(i.hasNext()) {
+					Student student =(Student) i.next();
+					String studentInfo = student.toString();
+					byte[] data = studentInfo.getBytes();
+					fos.write(data);
+				}
+			}else {
+				FileOutputStream fos = new FileOutputStream(file);
+				Iterator i = studentList.iterator();
+				while(i.hasNext()) {
+					Student student =(Student) i.next();
+					String studentInfo = student.toString();
+					byte[] data = studentInfo.getBytes();
+					fos.write(data);
+				}	
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 	

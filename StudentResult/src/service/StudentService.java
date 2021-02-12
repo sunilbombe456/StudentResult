@@ -15,5 +15,10 @@ public interface StudentService {
 
 	void filterByResult(List<Student> studentList);
 
+	void saveIntoFile(List<Student> studentList);
+
+
+	
+
 
 }
